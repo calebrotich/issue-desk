@@ -37,7 +37,7 @@ const Home = () => {
          <Button variant="contained" color="primary">VIEW POSTS</Button>
        </div>
      </section>
-     <section className="knowledge-base-section">
+     <section className="knowledge-base-section" id="knowledge-base">
        <p className="title">Knowledge Base</p>
        <span>Help resources to help you around SMS Leopard</span>
        <div className="knowledge-content">
@@ -52,7 +52,7 @@ const Home = () => {
          </div>
        </div>
      </section>
-     <section className="raise-issue-container" id="section1">
+     <section className="raise-issue-container" id="ask-quiz">
        <p className="title">Still stuck? Raise a question</p>
        <div>
        <form className="form-container" noValidate autoComplete="off">

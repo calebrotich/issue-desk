@@ -39,15 +39,26 @@ export default function NavBar() {
           <Button style={{marginRight: '20px'}} color="inherit">
             <Link
                 activeClass="active"
-                to="section1"
+                to="ask-quiz"
                 spy={true}
                 smooth={true}
-                duration={1000}
+                duration={500}
             >
                 Ask Question
             </Link>
           </Button>
-          <Button style={{marginRight: '20px'}} color="inherit" className={classes.kbase}>Knowledge Base</Button>
+          <Button style={{marginRight: '20px'}} color="inherit" className={classes.kbase}>
+          <Link
+                activeClass="active"
+                to="knowledge-base"
+                spy={true}
+                offset={-100}
+                smooth={true}
+                duration={500}
+            >
+                Knowledge Base
+            </Link>
+          </Button>
         </Toolbar>
       </AppBar>
     </div>
