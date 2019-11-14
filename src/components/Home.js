@@ -1,14 +1,40 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
+import axiosConfig from '../config/axios';
 import Intro from './Intro';
+import { toastr } from 'react-redux-toastr';
 import '../css/Home.css';
 
 const Home = () => {
-  const [value, setValue] = React.useState('');
-  const handleChange = event => {
-    setValue(event.target.value);
+  const [values, setValues] = useState({
+    email: '',
+    subject: '',
+    description: ''
+  });
+
+  const handleChange = prop => event => {
+    setValues({ ...values, [prop]: event.target.value });
   };
+
+  const submitIssue = () => {
+    axiosConfig
+    .post('/issue_tracking/issues', {
+      channel_id: 4,
+      query_issue: values.subject,
+      issue_details: values.description
+    })
+    .then((res) => {
+      if (res) {
+        console.log(res);
+        toastr.success('Done', 'Your question has been received, you will get an aswer as soon as possible');
+      }
+    })
+    .catch(() => {
+      toastr.error('Something broke', 'Kindly try again later');
+    });
+  };
+
  return (
   <main>
      <Intro IntroMessage="How can we be of help today?" />
@@ -51,8 +77,8 @@ const Home = () => {
        <form className="form-container" noValidate autoComplete="off">
           <TextField
             label="Your E-mail"
-            value={value}
-            onChange={handleChange}
+            value={values.email}
+            onChange={handleChange('email')}
             className="text-field"
             margin="normal"
             variant="outlined"
@@ -60,26 +86,22 @@ const Home = () => {
           <TextField
             label="Subject"
             className="text-field"
+            onChange={handleChange('subject')}
+            value={values.subject}
             margin="normal"
             variant="outlined"
           />
           <TextField
             label="Description"
-            value={value}
-            onChange={handleChange}
+            value={values.description}
+            onChange={handleChange('description')}
             multiline
             rows="5"
             className="text-field"
             margin="normal"
             variant="outlined"
           />
-          <TextField
-            label="Attachments"
-            className="text-field"
-            margin="normal"
-            variant="outlined"
-          />
-          <Button variant="filled">
+          <Button variant="filled" onClick={() => submitIssue()}>
             Submit
           </Button>
     </form>

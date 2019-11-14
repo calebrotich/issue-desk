@@ -9,29 +9,24 @@ const loginUser = credentials => (dispatch) => {
   delete axiosConfig.defaults.headers.Authorization;
   localStorage.clear();
   axiosConfig
-    .get('/issue_tracking/authenticate', {headers: {credentials}})
+    .get('/issue_tracking/authenticate', {auth: {
+      username: credentials.email,
+      password: credentials.password
+    }})
     .then((res) => {
       if (res) {
-        toastr.success('Login success!');
         dispatch({
           type: LOGIN_USER,
           payload: { ...res.data.user, success: true },
         });
-        toastr.success('Successful Login', `${res.data.user.username} logged in successfully`);
+        toastr.success('Successful Login', `${res.data.user.name} logged in successfully`);
       }
     })
-    .catch((errors) => {
-      console.log(errors);
-      // const err = JSON.parse(errors.request.response);
-      // const err = errors.request.response;
-      // dispatch({
-      //   type: LOGIN_ERROR,
-      //   payload: err.errors,
-      // });
-      // const message = err.errors.error[0];
-      // toastr.error('Login Failed', message);
-      toastr.error('Login Failed');
-
+    .catch(() => {
+      dispatch({
+        type: LOGIN_ERROR
+      });
+      toastr.error('Login Failed', 'Username or password may be incorrect');
     });
 };
 
