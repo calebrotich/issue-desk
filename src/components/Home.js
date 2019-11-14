@@ -1,9 +1,8 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
-import NavBar from './NavBar';
-import '../css/Home.css';
-import SearchField from './SearchField';
 import TextField from '@material-ui/core/TextField';
+import Intro from './Intro';
+import '../css/Home.css';
 
 const Home = () => {
   const [value, setValue] = React.useState('');
@@ -12,13 +11,7 @@ const Home = () => {
   };
  return (
   <main>
-    <header>
-      <NavBar />
-    </header>
-     <section className="intro-div">
-       <p className="intro-text">How can we be of help today?</p>
-       <SearchField />
-     </section>
+     <Intro IntroMessage="How can we be of help today?" />
      <section className="answer-options-div">
        <div className="community-div">
          <p>Knowledge Base</p>
@@ -93,7 +86,7 @@ const Home = () => {
        </div>
      </section>
      <footer>
-       (c) 2019
+       © 2019
      </footer>
   </main>
  );

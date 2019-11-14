@@ -1,0 +1,14 @@
+.login-section {
+  padding: 50px 0;
+  position: relative;
+  animation: login 1s ease;
+}
+
+@keyframes login {
+  0% {right: -1500px;}
+  100% {right: 30px}
+}
+
+.form-container {
+  align-items: center;
+}

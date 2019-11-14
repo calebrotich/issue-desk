@@ -5,6 +5,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import { Link } from "react-scroll";
+import { withRouter } from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -12,6 +13,7 @@ const useStyles = makeStyles(theme => ({
   },
   title: {
     flexGrow: 1,
+    cursor: 'pointer'
   },
   toolbar: {
     backgroundColor: '#3A58F3',
@@ -21,21 +23,31 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function NavBar() {
+const NavBar = ({history}) => {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
       <AppBar position="fixed" style={{boxShadow: 'none'}}>
         <Toolbar className={classes.toolbar}>
-          <Typography variant="h6" className={classes.title}>
+          <Typography
+           variant="h6"
+           className={classes.title}
+           onClick={() => history.push('/')}
+           >
             Issue Desk
           </Typography>
           <Button>
 
           </Button>
 
-          <Button style={{marginRight: '20px'}} color="inherit">Login</Button>
+          <Button 
+          style={{marginRight: '20px'}} 
+          color="inherit"
+          onClick={() => history.push('/login')}
+          >
+            Login
+          </Button>
           <Button style={{marginRight: '20px'}} color="inherit">
             <Link
                 activeClass="active"
@@ -64,3 +76,5 @@ export default function NavBar() {
     </div>
   );
 }
+
+export default withRouter(NavBar);
