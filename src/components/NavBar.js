@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useLayoutEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -16,20 +16,65 @@ const useStyles = makeStyles(theme => ({
     cursor: 'pointer'
   },
   toolbar: {
-    backgroundColor: '#3A58F3',
+    backgroundColor: 'transparent',
   },
   kbase: {
-    border: '1px solid white'
+    border: '1px solid #3A58F3'
+  },
+  appbar: {
+    backgroundColor: 'transparent',
+    color: '#3A58F3',
   }
 }));
+
+const setCustomStyle = () => {
+  document
+    .getElementById("tool-bar")
+    .setAttribute(
+      "style",
+      "background-color: #fff !important; box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12)"
+    );
+};
+
+/**
+ * Set CSS attribute based on IE or current modern Browser
+ */
+const unSetCustomStyle = () => {
+  document
+    .getElementById("tool-bar")
+    .setAttribute(
+      "style",
+      "background-color: transparent !important; box-shadow: unset"
+    );
+};
+
+/**
+ * Change navbar behavior base on the window page offset
+ */
+const headerColorChange = () => {
+  const windowsScrollTop = window.pageYOffset;
+
+  if (windowsScrollTop > 22) {
+    setCustomStyle();
+  } else {
+    unSetCustomStyle();
+  }
+};
 
 const NavBar = ({history}) => {
   const classes = useStyles();
 
+  useLayoutEffect(() => {
+    window.addEventListener("scroll", headerColorChange);
+    return () => {
+      window.removeEventListener("scroll", headerColorChange);
+    };
+  });
+
   return (
     <div className={classes.root}>
-      <AppBar position="fixed" style={{boxShadow: 'none'}}>
-        <Toolbar className={classes.toolbar}>
+      <AppBar position="fixed" className={classes.appbar} style={{boxShadow: 'none'}}>
+        <Toolbar className={classes.toolbar} id="tool-bar">
           <Typography
            variant="h6"
            className={classes.title}
