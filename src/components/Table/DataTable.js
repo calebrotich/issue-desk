@@ -15,6 +15,7 @@ import TableHeader from './TableHeader';
 import TableToolBar from './TableToolBar';
 import { TableStyles } from './tableStyles';
 import { stableSort, getSorting } from './utils';
+import Chip from '@material-ui/core/Chip';
 
 export const DataTable = ({
   classes, columns, data, title, onRowClick, isAdmin
@@ -163,6 +164,26 @@ export const DataTable = ({
                     id, query_issue, date_created, customer_id, channel_id, status_id,
                     action, created_by
                   } = row;
+
+                  let statusMessage;
+                  let colorChoice;
+                  let textColor = 'white';
+
+                  if (status_id === 0 ) {
+                    statusMessage = 'Open';
+                    colorChoice = 'bluegray';
+                    textColor = 'black';
+                  } else if (status_id === 1) {
+                    statusMessage = 'Ongoing';
+                    colorChoice = 'orange';
+                  } else if (status_id === 2) {
+                    statusMessage = 'Resolved';
+                    colorChoice = 'green';
+                  } else if (status_id === 3) {
+                    statusMessage = 'Follow up required';
+                    colorChoice = 'blue';
+                  }
+
                   return (
                     <TableRow
                       role="checkbox"
@@ -187,7 +208,9 @@ export const DataTable = ({
                       <TableCell align="left">{date_created}</TableCell>
                       <TableCell align="left">{customer_id}</TableCell>
                       <TableCell align="left">{channel_id}</TableCell>
-                      <TableCell align="left">{status_id}</TableCell>
+                      <TableCell align="left">
+                        <Chip style={{backgroundColor: colorChoice, color: textColor}} label={statusMessage} />
+                        </TableCell>
                       <TableCell align="left">{action}</TableCell>
                       <TableCell align="left">{created_by}</TableCell>
                     </TableRow>
