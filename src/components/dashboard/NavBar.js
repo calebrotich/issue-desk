@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom';
 import  '../../css/dashboard.css'
 
 const NavBar = ({ history }) => {
+  document.documentElement.classList.add('has-aside-left', 'has-aside-mobile-transition', 'has-navbar-fixed-top', 'has-aside-expanded');
   const toggleMenu = () => {
   if(document.documentElement.classList.contains('has-aside-mobile-expanded'))
     {
