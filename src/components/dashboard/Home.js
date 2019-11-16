@@ -82,7 +82,7 @@ class Home extends React.Component {
                                   <div className="level-item has-widget-icon">
                                       <div className="is-widget-icon"><span
                                           className="icon has-text-primary is-large"><i
-                                          className="mdi mdi-account-multiple mdi-48px"></i></span>
+                                          className="mdi mdi mdi-email-open mdi-48px"></i></span>
                                       </div>
                                   </div>
                               </div>
@@ -110,7 +110,7 @@ class Home extends React.Component {
                                   </div>
                                   <div className="level-item has-widget-icon">
                                       <div className="is-widget-icon"><span className="icon has-text-info is-large"><i
-                                          className="mdi mdi-cart-outline mdi-48px"></i></span>
+                                          className="mdi mdi-email-edit mdi-48px"></i></span>
                                       </div>
                                   </div>
                               </div>
@@ -138,7 +138,7 @@ class Home extends React.Component {
                                   <div className="level-item has-widget-icon">
                                       <div className="is-widget-icon"><span
                                           className="icon has-text-success is-large"><i
-                                          className="mdi mdi-finance mdi-48px"></i></span>
+                                          className="mdi mdi-email mdi-48px"></i></span>
                                       </div>
                                   </div>
                               </div>
@@ -165,7 +165,7 @@ class Home extends React.Component {
                                   </div>
                                   <div className="level-item has-widget-icon">
                                       <div className="is-widget-icon"><span
-                                          className="icon has-text-success is-large"><i
+                                          className="icon has-text-warning is-large"><i
                                           className="mdi mdi-finance mdi-48px"></i></span>
                                       </div>
                                   </div>
