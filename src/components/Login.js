@@ -25,7 +25,7 @@ const Login = ({ loginUser, user, history }) => {
     loginUser(loginCredentials);
   }
 
-  if(user.user.token || localStorage.token) {
+  if(user.password || localStorage.token) {
     localStorage.setItem('username', user.user.email);
     history.push('/dashboard');
   }

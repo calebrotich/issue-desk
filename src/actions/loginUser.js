@@ -15,11 +15,12 @@ const loginUser = credentials => (dispatch) => {
     }})
     .then((res) => {      
       if (res) {
+        localStorage.setItem('token', res.data.token);
+        localStorage.setItem('fullname', res.data.user.name);
         dispatch({
           type: LOGIN_USER,
-          payload: { ...res.data.user, success: true },
+          payload: res.data.user,
         });
-        localStorage.setItem('token', res.data.token);
         toastr.success('Successful Login', `${res.data.user.name} logged in successfully`);
       }
     })
