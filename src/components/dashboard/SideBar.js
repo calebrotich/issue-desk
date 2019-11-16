@@ -20,7 +20,7 @@ export default function SideBar() {
           <p className="menu-label">General</p>
           <ul className="menu-list">
             <li>
-              <a href="" className="is-active router-link-active has-icon">
+              <a href="/dashboard" className="router-link-active has-icon">
                 <span className="icon"><i className="mdi mdi-desktop-mac"></i></span>
                 <span className="menu-item-label">Dashboard</span>
               </a>
@@ -52,7 +52,7 @@ export default function SideBar() {
                 <li>
                   <a href="#void">
                     <span className="icon"><i className="mdi mdi-email-edit"></i></span>
-                    <span>Ongoin Issues</span>
+                    <span>Ongoing Issues</span>
                   </a>
                 </li>
                 <li>
@@ -82,7 +82,7 @@ export default function SideBar() {
                 <li>
                   <a href="#void">
                     <span className="icon"><i className="mdi mdi-email-edit"></i></span>
-                    <span>Ongoin Issues</span>
+                    <span>Ongoing Issues</span>
                   </a>
                 </li>
                 <li>
