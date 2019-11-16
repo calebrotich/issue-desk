@@ -7,7 +7,7 @@ export const issuesService = {
 
 function createIssue(issueData) {
   return axiosConfig
-      .post('/issue_tracking/issues',{issueData})
+      .post('/issue_tracking/issues',issueData)
       .then(response => {
           toastr.success('Successful Created', `Issue`);
         return  response;
