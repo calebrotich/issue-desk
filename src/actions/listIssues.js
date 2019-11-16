@@ -1,12 +1,12 @@
 import { ISSUES_SUCCESS, ISSUES_ERROR, ISSUES_REQUEST } from '../types';
 import axiosConfig from '../config/axios';
 
-const listIssues = () => (dispatch) => {
+const listIssues = (status_id) => (dispatch) => {
   dispatch({
     type: ISSUES_REQUEST,
   });
   axiosConfig
-    .get('/issue_tracking/issues')
+    .get(`/issue_tracking/issues?status=${status_id}`)
     .then((res) => {      
       if (res) {
         dispatch({

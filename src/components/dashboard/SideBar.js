@@ -37,6 +37,12 @@ export default function SideBar() {
                 </div>
               </a>
               <ul>
+              <li>
+                  <a href="/issues/all">
+                    <span className="icon"><i className="mdi mdi-email-edit"></i></span>
+                    <span>All Issues</span>
+                  </a>
+                </li>
                 <li>
                   <a href="/issues/create">
                     <span className="icon"><i className="mdi mdi-email-edit"></i></span>
@@ -44,21 +50,27 @@ export default function SideBar() {
                   </a>
                 </li>
                 <li>
-                  <a href="#void">
+                  <a href="/issues/open">
                     <span className="icon"><i className="mdi mdi-email-open"></i></span>
                     <span>Open Issues</span>
                   </a>
                 </li>
                 <li>
-                  <a href="#void">
+                  <a href="/issues/ongoing">
                     <span className="icon"><i className="mdi mdi-email-edit"></i></span>
                     <span>Ongoing Issues</span>
                   </a>
                 </li>
                 <li>
-                  <a href="#void">
+                  <a href="/issues/resolved">
                     <span className="icon"><i className="mdi mdi-email"></i></span>
-                    <span>Closed Issues</span>
+                    <span>Resolved Issues</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="/issues/followup">
+                    <span className="icon"><i className="mdi mdi-email-edit"></i></span>
+                    <span>Requires follow up</span>
                   </a>
                 </li>
               </ul>
