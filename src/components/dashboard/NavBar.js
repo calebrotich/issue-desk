@@ -1,10 +1,9 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import { withRouter } from 'react-router-dom';
 import  '../../css/dashboard.css'
 
-export default function NavBar() {
-  document.documentElement.classList.add('has-aside-left', 'has-aside-mobile-transition', 'has-navbar-fixed-top', 'has-aside-expanded');
-
+const NavBar = ({ history }) => {
   const toggleMenu = () => {
   if(document.documentElement.classList.contains('has-aside-mobile-expanded'))
     {
@@ -13,9 +12,9 @@ export default function NavBar() {
     document.documentElement.classList.add('has-aside-mobile-expanded');
     }
   };
-  function logout() {
-    // remove user from local storage to log user out
- //   localStorage.removeItem('currentUser');
+  const logout = () => {
+    localStorage.clear();
+    history.push('/');
   }
   return (
       <nav id="navbar-main" className="navbar is-fixed-top">
@@ -39,7 +38,11 @@ export default function NavBar() {
                 <div className="is-user-avatar">
                   <img src="https://avatars.dicebear.com/v2/initials/john-doe.svg" alt="John Doe"/>
                 </div>
-                <div className="is-user-name"><span>John Doe</span></div>
+                <div className="is-user-name"><span>
+                  {
+                    localStorage.getItem('fullname')
+                  }
+                  </span></div>
                 <span className="icon"><i className="mdi mdi-chevron-down"></i></span>
               </a>
               <div className="navbar-dropdown">
@@ -52,7 +55,7 @@ export default function NavBar() {
                   <span>Settings</span>
                 </a>
                 <hr className="navbar-divider"/>
-                  <a className="navbar-item">
+                  <a className="navbar-item" onClick={() => logout()}>
                     <span className="icon"><i className="mdi mdi-logout"></i></span>
                     <span>Log Out</span>
                   </a>
@@ -72,3 +75,5 @@ export default function NavBar() {
       </nav>
   );
 }
+
+export default withRouter(NavBar);
