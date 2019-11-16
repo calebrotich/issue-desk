@@ -1,8 +1,37 @@
 import React from 'react';
 import  '../../css/dashboard.css'
+import {dashboardService} from "../../actions/dashboardService";
 
-export default function Home() {
+class Home extends React.Component {
+    constructor(props) {
+        super(props);
 
+        this.state = {
+            dashboardData: null
+        };
+    }
+
+    componentDidMount() {
+        this.loadPage();
+
+    }
+
+    componentDidUpdate() {
+     //   this.loadPage();
+    }
+
+    loadPage() {
+        dashboardService.getDashboard().then(resData =>{
+            //   alert(JSON.stringify(resData.data));
+            let dashData = resData.data;
+           this.setState({dashboardData:dashData})
+
+
+        });
+
+    }
+    render() {
+        const {dashboardData} = this.state;
   return (
       <>
       <section className="section is-title-bar">
@@ -40,11 +69,14 @@ export default function Home() {
                               <div className="level is-mobile">
                                   <div className="level-item">
                                       <div className="is-widget-label"><h3 className="subtitle is-spaced">
-                                          Clients
+                                          Total Open
                                       </h3>
+                                          {
+                                              dashboardData!=null &&
                                           <h1 className="title">
-                                              512
+                                              {this.state.dashboardData.issues_report.total_open}
                                           </h1>
+                                          }
                                       </div>
                                   </div>
                                   <div className="level-item has-widget-icon">
@@ -57,16 +89,22 @@ export default function Home() {
                           </div>
                       </div>
                   </div>
+
                   <div className="tile is-parent">
                       <div className="card tile is-child">
                           <div className="card-content">
                               <div className="level is-mobile">
                                   <div className="level-item">
                                       <div className="is-widget-label"><h3 className="subtitle is-spaced">
-                                          Sales
+                                          Total Ongoing
                                       </h3>
                                           <h1 className="title">
-                                              $7,770
+                                              {
+                                                  dashboardData!=null &&
+                                                  <h1 className="title">
+                                                      {this.state.dashboardData.issues_report.total_ongoing}
+                                                  </h1>
+                                              }
                                           </h1>
                                       </div>
                                   </div>
@@ -85,10 +123,43 @@ export default function Home() {
                               <div className="level is-mobile">
                                   <div className="level-item">
                                       <div className="is-widget-label"><h3 className="subtitle is-spaced">
-                                          Performance
+                                          Total Resolved
                                       </h3>
                                           <h1 className="title">
-                                              256%
+                                              {
+                                                  dashboardData!=null &&
+                                                  <h1 className="title">
+                                                      {this.state.dashboardData.issues_report.total_resolved}
+                                                  </h1>
+                                              }
+                                          </h1>
+                                      </div>
+                                  </div>
+                                  <div className="level-item has-widget-icon">
+                                      <div className="is-widget-icon"><span
+                                          className="icon has-text-success is-large"><i
+                                          className="mdi mdi-finance mdi-48px"></i></span>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div className="tile is-parent">
+                      <div className="card tile is-child">
+                          <div className="card-content">
+                              <div className="level is-mobile">
+                                  <div className="level-item">
+                                      <div className="is-widget-label"><h3 className="subtitle is-spaced">
+                                          Total Follow Up
+                                      </h3>
+                                          <h1 className="title">
+                                              {
+                                                  dashboardData!=null &&
+                                                  <h1 className="title">
+                                                      {this.state.dashboardData.issues_report.total_follow_up_required}
+                                                  </h1>
+                                              }
                                           </h1>
                                       </div>
                                   </div>
@@ -478,4 +549,6 @@ export default function Home() {
           </>
 
   );
+    };
 }
+export default Home;
