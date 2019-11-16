@@ -3,6 +3,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import  '../../css/dashboard.css'
 
 export default function NavBar() {
+  document.documentElement.classList.add('has-aside-left', 'has-aside-mobile-transition', 'has-navbar-fixed-top', 'has-aside-expanded');
+
   const toggleMenu = () => {
   if(document.documentElement.classList.contains('has-aside-mobile-expanded'))
     {
