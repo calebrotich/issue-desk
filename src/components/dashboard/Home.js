@@ -1,6 +1,7 @@
 import React from 'react';
 import  '../../css/dashboard.css'
 import {dashboardService} from "../../actions/dashboardService";
+import Graph from "./Graph";
 
 class Home extends React.Component {
     constructor(props) {
@@ -98,14 +99,12 @@ class Home extends React.Component {
                                       <div className="is-widget-label"><h3 className="subtitle is-spaced">
                                           Total Ongoing
                                       </h3>
-                                          <h1 className="title">
                                               {
                                                   dashboardData!=null &&
                                                   <h1 className="title">
                                                       {this.state.dashboardData.issues_report.total_ongoing}
                                                   </h1>
                                               }
-                                          </h1>
                                       </div>
                                   </div>
                                   <div className="level-item has-widget-icon">
@@ -125,14 +124,12 @@ class Home extends React.Component {
                                       <div className="is-widget-label"><h3 className="subtitle is-spaced">
                                           Total Resolved
                                       </h3>
-                                          <h1 className="title">
                                               {
                                                   dashboardData!=null &&
                                                   <h1 className="title">
                                                       {this.state.dashboardData.issues_report.total_resolved}
                                                   </h1>
                                               }
-                                          </h1>
                                       </div>
                                   </div>
                                   <div className="level-item has-widget-icon">
@@ -153,14 +150,12 @@ class Home extends React.Component {
                                       <div className="is-widget-label"><h3 className="subtitle is-spaced">
                                           Total Follow Up
                                       </h3>
-                                          <h1 className="title">
                                               {
                                                   dashboardData!=null &&
                                                   <h1 className="title">
                                                       {this.state.dashboardData.issues_report.total_follow_up_required}
                                                   </h1>
                                               }
-                                          </h1>
                                       </div>
                                   </div>
                                   <div className="level-item has-widget-icon">
@@ -187,16 +182,7 @@ class Home extends React.Component {
                   <div className="card-content">
                       <div className="chart-area">
                           <div style={{height: '100%'}}>
-                              <div className="chartjs-size-monitor">
-                                  <div className="chartjs-size-monitor-expand">
-                                      <div></div>
-                                  </div>
-                                  <div className="chartjs-size-monitor-shrink">
-                                      <div></div>
-                                  </div>
-                              </div>
-                              <canvas id="big-line-chart" width="2992" height="1000" className="chartjs-render-monitor"
-                                      style={{display: 'block', height: '400px', width: '1197px'}}></canvas>
+                              <Graph></Graph>
                           </div>
                       </div>
                   </div>
