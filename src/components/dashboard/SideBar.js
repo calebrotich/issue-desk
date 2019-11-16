@@ -38,6 +38,12 @@ export default function SideBar() {
               </a>
               <ul>
                 <li>
+                  <a href="/issues/create">
+                    <span className="icon"><i className="mdi mdi-email-edit"></i></span>
+                    <span>Create Issues</span>
+                  </a>
+                </li>
+                <li>
                   <a href="#void">
                     <span className="icon"><i className="mdi mdi-email-open"></i></span>
                     <span>Open Issues</span>
