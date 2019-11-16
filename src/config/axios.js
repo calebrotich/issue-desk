@@ -5,7 +5,7 @@ const axiosConfig = axios;
 if (token) {
   axiosConfig.defaults.headers = {
     'Content-Type': 'application/json',
-    Authorization: token,
+    Authorization: `Bearer ${token}`,
   };
 }
 axios.defaults.baseURL = process.env.REACT_APP_API_URL;

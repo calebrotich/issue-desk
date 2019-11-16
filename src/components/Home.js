@@ -26,7 +26,6 @@ const Home = () => {
     })
     .then((res) => {
       if (res) {
-        console.log(res);
         toastr.success('Done', 'Your question has been received, you will get an aswer as soon as possible');
       }
     })

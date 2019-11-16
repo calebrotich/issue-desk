@@ -27,7 +27,6 @@ const Login = ({ loginUser, user, history }) => {
 
   if(user.user.token || localStorage.token) {
     localStorage.setItem('username', user.user.email);
-    localStorage.setItem('token', user.user.token);
     history.push('/dashboard');
   }
 

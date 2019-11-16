@@ -24,7 +24,7 @@ ReactDOM.render(
           closeOnToastrClick
         />
     <App />
-  </Provider>,
+  </Provider>
     </BrowserRouter>,
    document.getElementById('root')
 );

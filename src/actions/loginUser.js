@@ -13,12 +13,13 @@ const loginUser = credentials => (dispatch) => {
       username: credentials.email,
       password: credentials.password
     }})
-    .then((res) => {
+    .then((res) => {      
       if (res) {
         dispatch({
           type: LOGIN_USER,
           payload: { ...res.data.user, success: true },
         });
+        localStorage.setItem('token', res.data.token);
         toastr.success('Successful Login', `${res.data.user.name} logged in successfully`);
       }
     })
