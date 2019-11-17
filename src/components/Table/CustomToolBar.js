@@ -57,11 +57,6 @@ export class CustomToolBar extends Component {
           >
             <SearchIcon />
           </CustomIconButton>
-          <Tooltip title="Add Issue">
-            <IconButton>
-              <AddIcon className={classes.svgIcon} />
-            </IconButton>
-          </Tooltip>
         </Fragment>
       </Fragment>
     );

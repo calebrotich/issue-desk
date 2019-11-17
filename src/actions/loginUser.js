@@ -17,6 +17,7 @@ const loginUser = credentials => (dispatch) => {
       if (res) {
         localStorage.setItem('token', res.data.token);
         localStorage.setItem('fullname', res.data.user.name);
+        localStorage.setItem('userObject', JSON.stringify(res.data.user));
         dispatch({
           type: LOGIN_USER,
           payload: res.data.user,

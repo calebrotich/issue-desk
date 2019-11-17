@@ -58,7 +58,7 @@ const Customers = ({ history, listCustomers, customers, match: { params: { statu
             <span className="icon"><i className="mdi mdi-ballot"></i></span>
             All Customers
         </p>
-        <button class="button is-success" onClick={() => history.push('/customers/create')}>
+        <button class="button is-primary" onClick={() => history.push('/customers/create')}>
             <span class="icon is-small">
             <i class="mdi mdi-plus"></i>
             </span>

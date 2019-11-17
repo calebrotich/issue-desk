@@ -39,15 +39,15 @@ const SideBar = ({ history }) => {
               </a>
               <ul>
               <li>
+                <a href="/issues/create">
+                  <span className="icon"><i className="mdi mdi-email-edit"></i></span>
+                  <span>Add Issue</span>
+                </a>
+              </li>
+              <li>
                   <a onClick={() => history.push('/issues/all')}>
                     <span className="icon"><i className="mdi mdi-email-edit"></i></span>
                     <span>All Issues</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="/issues/create">
-                    <span className="icon"><i className="mdi mdi-email-edit"></i></span>
-                    <span>Create Issues</span>
                   </a>
                 </li>
                 <li>
@@ -72,36 +72,6 @@ const SideBar = ({ history }) => {
                   <a href="/issues/followup">
                     <span className="icon"><i className="mdi mdi-email-edit"></i></span>
                     <span>Requires follow up</span>
-                  </a>
-                </li>
-              </ul>
-            </li>
-
-            <li id ="myissues" onClick={() => toggleClass('myissues')}>
-              <a className="has-icon has-dropdown-icon">
-                <span className="icon"><i className="mdi mdi-account-badge-horizontal"></i></span>
-                <span className="menu-item-label">My Issues</span>
-                <div className="dropdown-icon">
-                  <span className="icon"><i className="mdi mdi-plus"></i></span>
-                </div>
-              </a>
-              <ul>
-                <li>
-                  <a href="#void">
-                    <span className="icon"><i className="mdi mdi-email-open"></i></span>
-                    <span>Open Issues</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#void">
-                    <span className="icon"><i className="mdi mdi-email-edit"></i></span>
-                    <span>Ongoing Issues</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#void">
-                    <span className="icon"><i className="mdi mdi-email"></i></span>
-                    <span>Closed Issues</span>
                   </a>
                 </li>
               </ul>

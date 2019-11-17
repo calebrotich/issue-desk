@@ -168,6 +168,7 @@ export const DataTable = ({
                   let statusMessage;
                   let colorChoice;
                   let textColor = 'white';
+                  let channelName = '';
 
                   if (status_id === 0 ) {
                     statusMessage = 'Open';
@@ -182,6 +183,30 @@ export const DataTable = ({
                   } else if (status_id === 3) {
                     statusMessage = 'Follow up required';
                     colorChoice = 'blue';
+                  }
+
+                  switch (channel_id) {
+                    case 1:
+                      channelName = 'Chat'
+                      break;
+                    case 2:
+                      channelName = 'E-mail'
+                      break;
+                    case 3:
+                      channelName = 'Call'
+                      break;
+                    case 4:
+                      channelName = 'Social Media'
+                      break;
+                    case 5:
+                      channelName = 'Issue Desk'
+                      break;
+                    case 6:
+                      channelName = 'Other'
+                      break;
+                  
+                    default:
+                      break;
                   }
 
                   return (
@@ -207,7 +232,7 @@ export const DataTable = ({
                       <TableCell align="left">{query_issue}</TableCell>
                       <TableCell align="left">{date_created}</TableCell>
                       <TableCell align="left">{customer_id}</TableCell>
-                      <TableCell align="left">{channel_id}</TableCell>
+                      <TableCell align="left">{channelName}</TableCell>
                       <TableCell align="left">
                         <Chip style={{backgroundColor: colorChoice, color: textColor}} label={statusMessage} />
                         </TableCell>

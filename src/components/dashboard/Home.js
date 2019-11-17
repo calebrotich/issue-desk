@@ -56,8 +56,15 @@ class Home extends React.Component {
                               Dashboard
                           </h1></div>
                       </div>
-                      <div className="level-right" style={{display: 'none'}}>
-                          <div className="level-item"></div>
+                      <div className="level-right">
+                          <div className="level-item">
+                          <button class="button is-danger" onClick={() => window.location.href = '/issues/create'}>
+                                <span class="icon is-small">
+                                <i class="mdi mdi-plus"></i>
+                                </span>
+                                <span>Add New Issue</span>
+                            </button>
+                          </div>
                       </div>
                   </div>
               </div>

@@ -56,7 +56,7 @@ const Users = ({ history, listUsers, users, match: { params: { status } } }) => 
             <span className="icon"><i className="mdi mdi-ballot"></i></span>
             All users
         </p>
-        <button class="button is-success" onClick={() => history.push('/users/create')}>
+        <button class="button is-primary" onClick={() => history.push('/users/create')}>
             <span class="icon is-small">
             <i class="mdi mdi-plus"></i>
             </span>

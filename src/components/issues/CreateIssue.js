@@ -107,37 +107,44 @@ class CreateIssue extends React.Component {
                                   <div className="field">
                                       <div className="control">
                                               <textarea className="textarea"
-                                                        placeholder="Explain how we can help you" onChange={e => this.onChange(e)} name="action" ></textarea>
+                                                placeholder="Explain how we can help you" onChange={e => this.onChange(e)} name="action" ></textarea>
                                       </div>
                                   </div>
                               </div>
                           </div>
                               <hr></hr>
                           <div className="field is-horizontal">
-                              <div className="field-label is-normal">
-                                  <label className="label">Issue</label>
+                              <div  style={{display: 'none'}}>
+                                <div className="field">
+                                    <div className="control">
+                                        <div className="select is-fullwidth">
+                                            <select onChange={e => this.onChange(e)} name="created_by" >
+                                                <option>Created By B</option>
+                                                <option value="CX_TEAM">CX TEAM</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
                               </div>
                               <div className="field-body">
-                                  <div className="field">
+                                <div className="field is-horizontal">
+                                    <div className="field-label is-normal">
+                                        <label className="label">Assigned to</label>
+                                    </div>
+                                    <div className="field-body">
+                                    <div className="field">
                                       <div className="control">
                                           <div className="select is-fullwidth">
-                                              <select onChange={e => this.onChange(e)} name="created_by" >
-                                                  <option>Created By B</option>
-                                                  <option value="CX_TEAM">CX TEAM</option>
+                                              <select name="assigned_to">
+                                                  <option value={JSON.parse(localStorage.userObject).id}>{localStorage.fullname}</option>
                                               </select>
                                           </div>
                                       </div>
                                   </div>
-                                  <div className="field">
-                                      <div className="control">
-                                          <div className="select is-fullwidth">
-                                              <select onChange={e => this.onChange(e)} name="assigned_to">
-                                                  <option >Assign To</option>
-                                                  <option value="1">Karuga</option>
-                                              </select>
-                                          </div>
-                                      </div>
-                                  </div>
+                                    </div>
+                                 </div>
+
+
                               </div>
                           </div>
 
