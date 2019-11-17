@@ -5,6 +5,7 @@ import Login from './components/Login';
 import Dashboard from './components/Dashboard';
 import Issues from './components/issues/Issues';
 import CreateIssue from './components/issues/CreateIssue';
+import CreateUser from './components/users/CreateUser';
 import './css/App.css';
 
 const App = () => (
@@ -14,6 +15,7 @@ const App = () => (
     <Route exact path="/dashboard" component={Dashboard} />
     <Route exact path="/issues/create" component={CreateIssue} />
     <Route exact path="/issues/:status" component={Issues} />
+    <Route exact path="/users/create" component={CreateUser} />
 
   </Switch>
 );
