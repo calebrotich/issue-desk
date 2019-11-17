@@ -38,7 +38,7 @@ const NavBar = ({ history }) => {
             <div className="navbar-item has-dropdown has-dropdown-with-icons has-divider has-user-avatar is-hoverable">
               <a className="navbar-link is-arrowless">
                 <div className="is-user-avatar">
-                  <img src="https://avatars.dicebear.com/v2/initials/john-doe.svg" alt="John Doe"/>
+                  <span className="icon"><i className="mdi mdi-24px mdi-account-circle"></i></span>
                 </div>
                 <div className="is-user-name"><span>
                   {

@@ -35,10 +35,10 @@ console.log(this.props.issue);
     if(data!=null) {
         //  console.log(this.state);
         data.issue_id = this.props.issue;
-        data.cx_member = 1;
+        data.cx_member_id = 1;
         data.status_id =parseInt(data.status_id);
         if(isNaN(data.status_id)){
-            data.status_id =1;
+            data.status_id =2;
         }
         document.getElementById('sample-modal').classList.remove('is-active');
         issuesService.createResolution(data);
@@ -101,10 +101,10 @@ console.log(this.props.issue);
                     <div className="control">
                       <div className="select is-fullwidth">
                         <select onChange={e => this.onChange(e)}   name="status_id" >
-                          <option value="1">Status</option>
-                          <option value="1">Open</option>
-                          <option value="2">Ongoing</option>
-                          <option value="3">Resolved</option>
+                          <option value="2">Status</option>
+                          <option value="0">Open</option>
+                          <option value="1">Ongoing</option>
+                          <option value="2">Resolved</option>
                           <option value="3">Follow Up Required</option>
                         </select>
                       </div>

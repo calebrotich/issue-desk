@@ -2,6 +2,7 @@ import React from 'react';
 import  '../../css/dashboard.css'
 import {dashboardService} from "../../actions/dashboardService";
 import Graph from "./Graph";
+import {withRouter} from "react-router-dom";
 
 class Home extends React.Component {
     constructor(props) {
@@ -72,7 +73,7 @@ class Home extends React.Component {
           <section className="section is-main-section">
               <div className="tile is-ancestor">
                   <div className="tile is-parent">
-                      <div className="card tile is-child">
+                      <div className="card tile is-child" onClick={() => this.props.history.push('/issues/open')}>
                           <div className="card-content">
                               <div className="level is-mobile">
                                   <div className="level-item">
@@ -99,7 +100,7 @@ class Home extends React.Component {
                   </div>
 
                   <div className="tile is-parent">
-                      <div className="card tile is-child">
+                      <div className="card tile is-child" onClick={() => this.props.history.push('/issues/ongoing')}>
                           <div className="card-content">
                               <div className="level is-mobile">
                                   <div className="level-item">
@@ -124,7 +125,7 @@ class Home extends React.Component {
                       </div>
                   </div>
                   <div className="tile is-parent">
-                      <div className="card tile is-child">
+                      <div className="card tile is-child" onClick={() => this.props.history.push('/issues/resolved')}>
                           <div className="card-content">
                               <div className="level is-mobile">
                                   <div className="level-item">
@@ -150,7 +151,7 @@ class Home extends React.Component {
                       </div>
                   </div>
                   <div className="tile is-parent">
-                      <div className="card tile is-child">
+                      <div className="card tile is-child" onClick={() => this.props.history.push('/issues/followup')}>
                           <div className="card-content">
                               <div className="level is-mobile">
                                   <div className="level-item">
@@ -202,4 +203,4 @@ class Home extends React.Component {
   );
     };
 }
-export default Home;
+export default withRouter(Home);
