@@ -6,14 +6,14 @@ let graphData = {
     labels  : ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
     datasets: [
         {
-            label                    : 'My First dataset',
+            label                    : '0',
             borderColor              : 'rgba(75,192,192,1)',
-            data                     : [65, 59, 80, 81, 56, 55, 40]
+            data                     : [0, 0, 0, 0, 0, 0, 0]
         },
         {
-            label                    : 'Second',
+            label                    : '2',
             borderColor              : 'rgba(75,192,192,1)',
-            data                     : [65, 30, 54, 81, 99, 34, 30]
+            data                     : [0, 0, 0, 0, 0, 0, 0]
         }
     ]
 };
@@ -48,21 +48,65 @@ class Graph extends React.Component {
                     {
                         label                    : 'Open',
                         borderColor              : '#00d1b2',
+                        fill: false,
+                        borderWidth: 2,
+                        borderDash: [],
+                        borderDashOffset: 0.0,
+                        pointBackgroundColor: '#00d1b2',
+                        pointBorderColor: 'rgba(255,255,255,0)',
+                        pointHoverBackgroundColor: '#00d1b2',
+                        pointBorderWidth: 20,
+                        pointHoverRadius: 4,
+                        pointHoverBorderWidth: 15,
+                        pointRadius: 4,
                         data                     : total_open
                     },
                     {
                         label                    : 'Total Ongoing',
                         borderColor              : '#167df0',
+                        fill: false,
+                        borderWidth: 2,
+                        borderDash: [],
+                        borderDashOffset: 0.0,
+                        pointBackgroundColor: '#167df0',
+                        pointBorderColor: 'rgba(255,255,255,0)',
+                        pointHoverBackgroundColor: '#167df0',
+                        pointBorderWidth: 20,
+                        pointHoverRadius: 4,
+                        pointHoverBorderWidth: 15,
+                        pointRadius: 4,
                         data                     : total_ongoing
                     },
                     {
                         label                    : 'Resolved',
                         borderColor              : '#ffdd57',
+                        fill: false,
+                        borderWidth: 2,
+                        borderDash: [],
+                        borderDashOffset: 0.0,
+                        pointBackgroundColor: '#ffdd57',
+                        pointBorderColor: 'rgba(255,255,255,0)',
+                        pointHoverBackgroundColor: '#ffdd57',
+                        pointBorderWidth: 20,
+                        pointHoverRadius: 4,
+                        pointHoverBorderWidth: 15,
+                        pointRadius: 4,
                         data                     : total_resolved
                     },
                     {
                         label                    : 'Follow Up Required',
                         borderColor              : '#ff3860',
+                        fill: false,
+                        borderWidth: 2,
+                        borderDash: [],
+                        borderDashOffset: 0.0,
+                        pointBackgroundColor: '#ff3860',
+                        pointBorderColor: 'rgba(255,255,255,0)',
+                        pointHoverBackgroundColor: '#ff3860',
+                        pointBorderWidth: 20,
+                        pointHoverRadius: 4,
+                        pointHoverBorderWidth: 15,
+                        pointRadius: 4,
                         data                     : total_follow_up_required
                     }
                 ]

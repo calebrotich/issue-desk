@@ -14,6 +14,7 @@ const NavBar = ({ history }) => {
     }
   };
   const logout = () => {
+    document.documentElement.className="";
     localStorage.clear();
     history.push('/');
   }
@@ -62,12 +63,12 @@ const NavBar = ({ history }) => {
                   </a>
               </div>
             </div>
-            <a href="https://justboil.me/bulma-admin-template/one" title="About"
+            <a href="/dashboard" title="About"
                className="navbar-item has-divider is-desktop-icon-only">
               <span className="icon"><i className="mdi mdi-help-circle-outline"></i></span>
               <span>About</span>
             </a>
-            <a title="Log out" className="navbar-item is-desktop-icon-only">
+            <a title="Log out" className="navbar-item is-desktop-icon-only" onClick={() => logout()}>
               <span className="icon"><i className="mdi mdi-logout"></i></span>
               <span>Log out</span>
             </a>

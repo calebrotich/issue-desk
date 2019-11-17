@@ -13,7 +13,7 @@ const SideBar = ({ history }) => {
   return (
       <aside className="aside is-placed-left is-expanded">
         <div className="aside-tools">
-          <div className="aside-tools-label">
+          <div className="aside-tools-label" onClick={() => window.location.replace('/')}>
             <span><b>Issue</b> Desk</span>
           </div>
         </div>

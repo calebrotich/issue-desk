@@ -26,7 +26,7 @@ const Login = ({ loginUser, user }) => {
       password: values.password
     };
     loginUser(loginCredentials);
-  }
+  };
 
   if(user.password || localStorage.token) {
     localStorage.setItem('username', user.user.email);
@@ -97,7 +97,7 @@ const Login = ({ loginUser, user }) => {
       </section>
     </main>
   )
-}
+};
 
 const mapStateToProps = state => ({
   user: state.login,
