@@ -24,6 +24,11 @@ function createUser(userData) {
         .post('/issue_tracking/users',userData)
         .then(response => {
             toastr.success('Successful Created', `User`);
+            if(userData.type === 1) {
+                window.location.replace('/users');
+            } else {
+                window.location.replace('/customers');
+            }
             return  response;
         })
         .catch((error) => {

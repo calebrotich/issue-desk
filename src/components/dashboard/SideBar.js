@@ -27,7 +27,7 @@ const SideBar = ({ history }) => {
               </a>
             </li>
           </ul>
-          <p className="menu-label">Examples</p>
+          <p className="menu-label">ISSUES AND USERS</p>
           <ul className="menu-list">
             <li id ="issues" onClick={() => toggleClass('issues')}>
               <a className="has-icon has-dropdown-icon">
@@ -115,14 +115,14 @@ const SideBar = ({ history }) => {
             </li>
 
             <li>
-              <a href="tables.html" className="has-icon">
+              <a href="#" className="has-icon" onClick={() => history.push('/users')}>
                 <span className="icon"><i className="mdi mdi-account"></i></span>
                 <span className="menu-item-label">Users</span>
               </a>
             </li>
 
             <li>
-              <a href="tables.html" className="has-icon">
+              <a href="#" className="has-icon">
                 <span className="icon"><i className="mdi mdi-chart-bar"></i></span>
                 <span className="menu-item-label">Reports</span>
               </a>
@@ -134,14 +134,14 @@ const SideBar = ({ history }) => {
           <ul className="menu-list">
 
             <li>
-              <a href="profile.html" className="has-icon">
+              <a href="#" className="has-icon">
                 <span className="icon"><i className="mdi mdi-account-circle"></i></span>
                 <span className="menu-item-label">Profile</span>
               </a>
             </li>
 
             <li>
-              <a href="forms.html" className="has-icon">
+              <a href="#" className="has-icon">
                 <span className="icon"><i className="mdi mdi-settings"></i></span>
                 <span className="menu-item-label">Settings</span>
               </a>
