@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
+import {makeStyles, withStyles} from '@material-ui/core/styles';
 import {
   Checkbox,
   Paper,
@@ -16,6 +16,7 @@ import TableToolBar from './TableToolBar';
 import { TableStyles } from './tableStyles';
 import { stableSort, getSorting } from './utils';
 import Chip from '@material-ui/core/Chip';
+import Resolution from "../issues/Resolution";
 
 export const DataTable = ({
   classes, columns, data, title, onRowClick, isAdmin
@@ -122,6 +123,32 @@ export const DataTable = ({
 
   const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
 
+
+  const useStylesPop= makeStyles(theme => ({
+    paper: {
+      border: '1px solid',
+      padding: theme.spacing(1),
+      backgroundColor: theme.palette.background.paper,
+    },
+  }));
+
+  //let issue = 0;
+  const [issue, setIssue] = useState(0);
+  const [row, setRow] = useState({});
+
+  const classesPop = useStylesPop();
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handlePopClick = (event,row) => {
+ //   setAnchorEl(anchorEl ? null : event.currentTarget);
+    setRow(row);
+    setIssue(row.id);
+    console.log("click " + issue);
+  };
+
+  const open = Boolean(anchorEl);
+  const idPop = open ? 'spring-popper' : undefined;
+
   return (
     <div className={classes.root}>
       <Paper className={classes.paper}>
@@ -162,7 +189,7 @@ export const DataTable = ({
                   const isItemSelected = isSelected(row.id);
                   const {
                     id, query_issue, date_created, customer_id, channel_id, status_id,
-                    action, created_by
+                    action, created_by, issue_details
                   } = row;
 
                   let statusMessage;
@@ -238,6 +265,14 @@ export const DataTable = ({
                         </TableCell>
                       <TableCell align="left">{action}</TableCell>
                       <TableCell align="left">{created_by}</TableCell>
+                      <TableCell align="left">
+                        <button className="button is-primary is-outlined" aria-describedby={idPop}  onClick={(event)=>handlePopClick(event,row)}>
+                         <span className="icon is-small">
+                       <span className="icon"><i className="mdi mdi-check-bold"></i></span>
+                         </span>
+                          <span>Resolution</span>
+                        </button>
+                      </TableCell>
                     </TableRow>
                   );
                 })}
@@ -265,6 +300,7 @@ export const DataTable = ({
           onChangeRowsPerPage={handleChangeRowsPerPage}
         />
       </Paper>
+      <Resolution  issue={issue} row={row} />
     </div>
   );
 };
