@@ -5,13 +5,17 @@ import { connect } from 'react-redux';
 import loginUser from '../actions/loginUser';
 import { withRouter } from 'react-router-dom';
 import Intro from './Intro';
+import axiosConfig from '../config/axios';
 import '../css/Login.css';
+import '../css/Home.css';
 
 const Login = ({ loginUser, user, history }) => {
   const [values, setValues] = useState({
     email: '',
     password: '',
   });
+  const [data, setData] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
 
   const handleChange = prop => event => {
     setValues({ ...values, [prop]: event.target.value });
@@ -30,9 +34,39 @@ const Login = ({ loginUser, user, history }) => {
     history.push('/dashboard');
   }
 
+  const getSearchData = (searchData) => {
+    setSearchTerm(searchData);
+    axiosConfig
+    .get(`/issue_tracking/issues?query=${searchData}&status=2`)
+    .then((res) => {      
+      if (res) {
+        setData(res.data);
+      }
+    })
+    .catch(() => {
+    });
+  }
+
   return (
     <main>
-      <Intro IntroMessage="Welcome back!" />
+      <Intro IntroMessage="Welcome back!" getSearchData={getSearchData} />
+      {
+        searchTerm !== '' ? (
+          <section className="result-section">
+          <span className="result-title">{`${data.length} result(s) for '${searchTerm}'`}</span>
+          <div className="result-content">
+            {
+              data.map((result) => (
+                <div className="result-card">
+                  <span className="result-issue">{result.query_issue}</span>
+                  <p>{result.action}</p>
+                </div>
+             ))
+            }
+          </div>
+        </section>
+        ) : (null)
+      }
       <section className="login-section">
         <div>
           <form className="form-container" noValidate autoComplete="off">

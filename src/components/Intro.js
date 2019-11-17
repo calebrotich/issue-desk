@@ -3,14 +3,14 @@ import NavBar from './NavBar';
 import '../css/Home.css';
 import SearchField from './SearchField';
 
-const Intro = ({IntroMessage}) => (
+const Intro = ({IntroMessage, getSearchData}) => (
   <Fragment>
     <header>
       <NavBar />
     </header>
     <section className="intro-div">
 <p className="intro-text">{IntroMessage}</p>
-      <SearchField />
+      <SearchField getSearchData={getSearchData} />
     </section>
   </Fragment>
 );

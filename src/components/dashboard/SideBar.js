@@ -1,7 +1,8 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import  '../../css/dashboard.css'
 
-export default function SideBar() {
+const SideBar = ({ history }) => {
  const toggleClass = (id) => {
     const oldClassName = document.getElementById(id).className;
     const newClassName = oldClassName === '' ? 'is-active' : '';
@@ -38,7 +39,7 @@ export default function SideBar() {
               </a>
               <ul>
               <li>
-                  <a href="/issues/all">
+                  <a onClick={() => history.push('/issues/all')}>
                     <span className="icon"><i className="mdi mdi-email-edit"></i></span>
                     <span>All Issues</span>
                   </a>
@@ -107,7 +108,7 @@ export default function SideBar() {
             </li>
 
             <li>
-              <a href="tables.html" className="has-icon">
+              <a href="#" onClick={() => history.push('/customers')} className="has-icon">
                 <span className="icon"><i className="mdi mdi-account-group"></i></span>
                 <span className="menu-item-label">Customers</span>
               </a>
@@ -150,3 +151,5 @@ export default function SideBar() {
       </aside>
   );
 }
+
+export default withRouter(SideBar);

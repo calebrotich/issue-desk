@@ -25,7 +25,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function SearchField() {
+export default function SearchField({getSearchData}) {
   const classes = useStyles();
 
   return (
@@ -34,6 +34,7 @@ export default function SearchField() {
         className={classes.input}
         placeholder="Search for answers e.g. How to top up"
         inputProps={{ 'aria-label': 'Search for answers e.g. How to top up' }}
+        onKeyUp={(event) => getSearchData(event.target.value)}
       />
       <IconButton type="submit" className={classes.iconButton} aria-label="search">
         <SearchIcon />
