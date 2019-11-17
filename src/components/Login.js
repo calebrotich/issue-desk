@@ -31,7 +31,6 @@ const Login = ({ loginUser, user }) => {
   if(user.password || localStorage.token) {
     localStorage.setItem('username', user.user.email);
     window.location.replace('/dashboard');
-<<<<<<< HEAD
   }
 
   const getSearchData = (searchData) => {
@@ -45,8 +44,6 @@ const Login = ({ loginUser, user }) => {
     })
     .catch(() => {
     });
-=======
->>>>>>> replace redirect with window.location.replace
   }
 
   return (
@@ -110,7 +107,3 @@ export default connect(
   mapStateToProps,
   { loginUser },
 )(Login);
-<<<<<<< HEAD
-=======
-
->>>>>>> replace redirect with window.location.replace
