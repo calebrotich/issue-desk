@@ -52,10 +52,6 @@ const NavBar = ({ history }) => {
                   <span className="icon"><i className="mdi mdi-account"></i></span>
                   <span>My Profile</span>
                 </a>
-                <a className="navbar-item">
-                  <span className="icon"><i className="mdi mdi-settings"></i></span>
-                  <span>Settings</span>
-                </a>
                 <hr className="navbar-divider"/>
                   <a className="navbar-item" onClick={() => logout()}>
                     <span className="icon"><i className="mdi mdi-logout"></i></span>
