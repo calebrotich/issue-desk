@@ -17,7 +17,16 @@ let graphData = {
         }
     ]
 };
-
+let options =  {
+    scales: {
+        yAxes: [{
+            ticks: {
+                max: 50,
+                min: 0
+            }
+        }]
+    }
+}
 class Graph extends React.Component {
 
     componentDidMount() {
@@ -121,6 +130,7 @@ class Graph extends React.Component {
             <div className="flex flex-col items-center w-full max-w-md">
                 <h2>Yearly Issues Report</h2>
                 <Line data={graphData}
+                      options={options}
                 />
             </div>
         );

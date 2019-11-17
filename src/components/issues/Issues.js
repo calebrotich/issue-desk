@@ -39,6 +39,10 @@ const Issues = ({ history, listIssues, issues, match: { params: { status } } }) 
       name: 'created_by',
       label: 'Created By'
     },
+    {
+      name: 'resolution',
+      label: 'Edit'
+    },
   ];
 
   return (

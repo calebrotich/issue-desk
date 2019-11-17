@@ -186,12 +186,14 @@ class Home extends React.Component {
                           <span className="icon"><i className="mdi mdi-reload"></i></span>
                       </a>
                   </header>
+                  <div className="column is-10 is-offset-1">
                   <div className="card-content">
                       <div className="chart-area">
                           <div style={{height: '100%'}}>
                               <Graph></Graph>
                           </div>
                       </div>
+                  </div>
                   </div>
               </div>
           </section>
