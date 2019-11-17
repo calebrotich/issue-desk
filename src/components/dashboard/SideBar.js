@@ -91,14 +91,6 @@ const SideBar = ({ history }) => {
               </a>
             </li>
 
-            <li>
-              <a href="#" className="has-icon">
-                <span className="icon"><i className="mdi mdi-chart-bar"></i></span>
-                <span className="menu-item-label">Reports</span>
-              </a>
-            </li>
-
-
           </ul>
           <p className="menu-label">Settings</p>
           <ul className="menu-list">
