@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import {
-  TableSortLabel, Checkbox, TableRow, TableHead, TableCell
+  TableSortLabel, TableRow, TableHead, TableCell
 } from '@material-ui/core';
 
 import sortAscendingIcon from './images/sort_ascending_icon.png';
@@ -10,11 +10,8 @@ import sortDescendingIcon from './images/sort_descending_icon.png';
 import stockControlStyles, { TableHeaderStyles } from './tableStyles';
 
 const TableHeader = ({
-  onSelectAllClick,
   order,
   orderBy,
-  numSelected,
-  rowCount,
   onRequestSort,
   headRows,
   classes
@@ -50,13 +47,6 @@ const TableHeader = ({
   return (
     <TableHead>
       <TableRow>
-        <TableCell className={classes.headerWrapper} padding="checkbox">
-          <Checkbox
-            indeterminate={numSelected > 0 && numSelected < rowCount}
-            checked={numSelected === rowCount}
-            onClick={onSelectAllClick}
-          />
-        </TableCell>
         {headRows.map(row => (
           <TableCell
             className={classes.headerWrapper}

@@ -86,12 +86,11 @@ export const DataTable = ({
     if (searchText !== prevSearchValue && searchText.length > 0) {
       setPrevSearchValue(searchText);
       searchResults = data.filter(
-        row => searchMatch.test(row.query_issue)
-        || searchMatch.test(row.status_id)
-        || searchMatch.test(row.created_by)
+        row => searchMatch.test(row.name)
+        || searchMatch.test(row.phone)
+        || searchMatch.test(row.email)
+        || searchMatch.test(row.type)
         || searchMatch.test(row.date_created)
-        || searchMatch.test(row.action)
-        || searchMatch.test(row.channel_id)
         );
       setRows(searchResults);
     } else {
@@ -182,14 +181,6 @@ export const DataTable = ({
                         onRowClick(id);
                       }}
                     >
-                      <TableCell padding="checkbox">
-                        <Checkbox
-                          checked={isItemSelected}
-                          onClick={() => {
-                            handleClick(id);
-                          }}
-                        />
-                      </TableCell>
                       <TableCell align="left">{name}</TableCell>
                       <TableCell align="left">{date_created}</TableCell>
                       <TableCell align="left">{phone}</TableCell>

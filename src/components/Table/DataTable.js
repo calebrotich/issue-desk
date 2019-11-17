@@ -247,15 +247,6 @@ export const DataTable = ({
                         onRowClick(id);
                       }}
                     >
-                      <TableCell padding="checkbox">
-                        <Checkbox
-                          checked={isItemSelected}
-                          onClick={(event) => {
-                            event.stopPropagation();
-                            handleClick(event, id);
-                          }}
-                        />
-                      </TableCell>
                       <TableCell align="left">{query_issue}</TableCell>
                       <TableCell align="left">{date_created}</TableCell>
                       <TableCell align="left">{customer_email}</TableCell>
