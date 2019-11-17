@@ -3,7 +3,6 @@ import  '../css/dashboard.css'
 import NavBar from "./dashboard/NavBar";
 import SideBar from "./dashboard/SideBar";
 
-let user =JSON.parse(localStorage.userObject);
 class Profile extends React.Component {
 
     componentDidMount() {
@@ -17,6 +16,7 @@ class Profile extends React.Component {
     
 
     render() {
+    let user = JSON.parse(localStorage.userObject);
   return (
       <div id="app">
           <NavBar/>
