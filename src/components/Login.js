@@ -3,13 +3,12 @@ import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import { connect } from 'react-redux';
 import loginUser from '../actions/loginUser';
-import { withRouter } from 'react-router-dom';
 import Intro from './Intro';
 import axiosConfig from '../config/axios';
 import '../css/Login.css';
 import '../css/Home.css';
 
-const Login = ({ loginUser, user, history }) => {
+const Login = ({ loginUser, user }) => {
   const [values, setValues] = useState({
     email: '',
     password: '',
@@ -31,7 +30,7 @@ const Login = ({ loginUser, user, history }) => {
 
   if(user.password || localStorage.token) {
     localStorage.setItem('username', user.user.email);
-    history.push('/dashboard');
+    window.location.replace('/dashboard');
   }
 
   const getSearchData = (searchData) => {
@@ -107,5 +106,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   { loginUser },
-)(withRouter(Login));
-
+)(Login);
