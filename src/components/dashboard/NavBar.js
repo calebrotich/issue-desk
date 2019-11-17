@@ -48,7 +48,7 @@ const NavBar = ({ history }) => {
                 <span className="icon"><i className="mdi mdi-chevron-down"></i></span>
               </a>
               <div className="navbar-dropdown">
-                <a className="navbar-item">
+                <a className="navbar-item" onClick={() => history.push('/profile')}>
                   <span className="icon"><i className="mdi mdi-account"></i></span>
                   <span>My Profile</span>
                 </a>
