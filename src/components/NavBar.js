@@ -80,7 +80,7 @@ const NavBar = ({history}) => {
            className={classes.title}
            onClick={() => history.push('/')}
            >
-            Issue Desk
+            <img src="/images/logo-dark.png" style={{width:'200px',cursor: 'pointer'}} alt="Issue Desk"/>
           </Typography>
           <Button>
 

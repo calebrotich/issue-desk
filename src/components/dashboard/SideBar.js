@@ -14,7 +14,7 @@ const SideBar = ({ history }) => {
       <aside className="aside is-placed-left is-expanded">
         <div className="aside-tools">
           <div className="aside-tools-label" onClick={() => window.location.replace('/')}>
-            <span><b>Issue</b> Desk</span>
+            <span> <img src="/images/logo-light.png" style={{padding:'15px',cursor: 'pointer'}} alt="Issue Desk"/></span>
           </div>
         </div>
         <div className="menu is-menu-main">
@@ -104,16 +104,9 @@ const SideBar = ({ history }) => {
           <ul className="menu-list">
 
             <li>
-              <a href="#" className="has-icon">
+              <a href="#"  onClick={() => history.push('/profile')} className="has-icon">
                 <span className="icon"><i className="mdi mdi-account-circle"></i></span>
                 <span className="menu-item-label">Profile</span>
-              </a>
-            </li>
-
-            <li>
-              <a href="#" className="has-icon">
-                <span className="icon"><i className="mdi mdi-settings"></i></span>
-                <span className="menu-item-label">Settings</span>
               </a>
             </li>
           </ul>
