@@ -7,7 +7,7 @@ import NavBar from "../dashboard/NavBar";
 import SideBar from "../dashboard/SideBar";
 
 const Issues = ({ history, listIssues, issues, match: { params: { status } } }) => {
-  const status_id = (status === 'all' && '') || (status === 'open' && 0) || (status === 'ongoing' && 1) || (status === 'resolved' && '2') || (status === 'followup' && '3');
+  const status_id = (status === 'all' && 100) || (status === 'open' && 0) || (status === 'ongoing' && 1) || (status === 'resolved' && '2') || (status === 'followup' && '3');
   useEffect(() => listIssues(status_id), [listIssues, status_id]);
 
   const columns = [
@@ -20,8 +20,8 @@ const Issues = ({ history, listIssues, issues, match: { params: { status } } }) 
       label: 'Date Created'
     },
     {
-      name: 'customer_id',
-      label: 'Customer'
+      name: 'customer_email',
+      label: 'Customer phone/e-mail'
     },
     {
       name: 'channel_id',

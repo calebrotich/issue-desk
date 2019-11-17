@@ -15,17 +15,15 @@ class CreateIssue extends React.Component {
      //   this.loadPage();
     }
 
-    handleSubmit = event => {
-      //  event.preventDefault();
-        console.log("click");
+    handleSubmit = () => {
         const data = this.state;
-      //  console.log(this.state);
-        data.status_id =0;
-        data.assigned_to =1;
+        console.log(data);
         data.channel_id =parseInt(data.channel_id);
-      //  console.log(data);
-       issuesService.createIssue(data);
+        data.assigned_to =parseInt(data.assigned_to);
+        data.status_id =parseInt(data.status_id);
+        issuesService.createIssue(data);
     };
+
     onChange(e) {
         this.setState({[e.target.name]: e.target.value})
     }
@@ -58,6 +56,38 @@ class CreateIssue extends React.Component {
                   </header>
                   <div className="card-content">
                       <form>
+                      <div className="field is-horizontal">
+                        <div className="field-body">
+                        <div className="field is-horizontal">
+                            <div className="field-label is-normal">
+                                <label className="label">Customer phone/e-mail</label>
+                            </div>
+                            <div className="field-body">
+                            <div className="field">
+                            <p className="control is-expanded has-icons-left">
+                                <input className="input" type="text" required name="customer_email" placeholder="Enter your e-mail / phone" onChange={e => this.onChange(e)}  />
+                                <span className="icon is-small is-left"><i
+                                  className="mdi mdi-mail"></i></span>
+                            </p>
+                            </div>
+                            <div className="field">
+                                <div className="control">
+                                    <div className="select is-fullwidth">
+                                        <select onChange={e => this.onChange(e)} name="status_id" >
+                                            <option>--Issue Status--</option>
+                                            <option value="0">Open</option>
+                                            <option value="1">Ongoing</option>
+                                            <option value="2">Resolved</option>
+                                            <option value="3">Follow up required</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                            </div>
+                        </div>
+                          </div>
+                          <hr />
                           <div className="field is-horizontal">
                               <div className="field-label is-normal">
                                   <label className="label">Query Issue</label>
@@ -73,11 +103,14 @@ class CreateIssue extends React.Component {
                                   <div className="field">
                                       <div className="control">
                                           <div className="select is-fullwidth">
-                                              <select onChange={e => this.onChange(e)}   name="channel_id" >
-                                                  <option>Channel</option>
+                                              <select onChange={e => this.onChange(e)} name="channel_id" >
+                                                  <option>--Select channel--</option>
                                                   <option value="1">Chat</option>
                                                   <option value="2">Email</option>
                                                   <option value="3">Call</option>
+                                                  <option value="4">Social Media</option>
+                                                  <option value="5">Issue Desk</option>
+                                                  <option value="6">Other</option>
                                               </select>
                                           </div>
                                       </div>
@@ -94,7 +127,7 @@ class CreateIssue extends React.Component {
                                       <div className="field">
                                           <div className="control">
                                               <textarea className="textarea"
-                                                        placeholder="Explain how we can help you"  onChange={e => this.onChange(e)} name="issue_details"  ></textarea>
+                                                placeholder="Explain how we can help you"  onChange={e => this.onChange(e)} name="issue_details"  ></textarea>
                                           </div>
                                       </div>
                                   </div>
@@ -107,7 +140,7 @@ class CreateIssue extends React.Component {
                                   <div className="field">
                                       <div className="control">
                                               <textarea className="textarea"
-                                                placeholder="Explain how we can help you" onChange={e => this.onChange(e)} name="action" ></textarea>
+                                                placeholder="Advice given to the user at the moment" onChange={e => this.onChange(e)} name="action" ></textarea>
                                       </div>
                                   </div>
                               </div>
@@ -135,7 +168,7 @@ class CreateIssue extends React.Component {
                                     <div className="field">
                                       <div className="control">
                                           <div className="select is-fullwidth">
-                                              <select name="assigned_to">
+                                              <select name="assigned_to" onChange={e => this.onChange(e)} >
                                                   <option value={JSON.parse(localStorage.userObject).id}>{localStorage.fullname}</option>
                                               </select>
                                           </div>
@@ -143,11 +176,8 @@ class CreateIssue extends React.Component {
                                   </div>
                                     </div>
                                  </div>
-
-
                               </div>
                           </div>
-
                                   <div className="field is-horizontal">
                                       <div className="field-label">
 

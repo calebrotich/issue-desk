@@ -188,8 +188,8 @@ export const DataTable = ({
                 .map((row) => {
                   const isItemSelected = isSelected(row.id);
                   const {
-                    id, query_issue, date_created, customer_id, channel_id, status_id,
-                    action, created_by, issue_details
+                    id, query_issue, date_created, customer_email, channel_id, status_id,
+                    action, created_by
                   } = row;
 
                   let statusMessage;
@@ -258,7 +258,7 @@ export const DataTable = ({
                       </TableCell>
                       <TableCell align="left">{query_issue}</TableCell>
                       <TableCell align="left">{date_created}</TableCell>
-                      <TableCell align="left">{customer_id}</TableCell>
+                      <TableCell align="left">{customer_email}</TableCell>
                       <TableCell align="left">{channelName}</TableCell>
                       <TableCell align="left">
                         <Chip style={{backgroundColor: colorChoice, color: textColor}} label={statusMessage} />

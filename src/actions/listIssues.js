@@ -2,6 +2,7 @@ import { ISSUES_SUCCESS, ISSUES_ERROR, ISSUES_REQUEST } from '../types';
 import axiosConfig from '../config/axios';
 
 const listIssues = (status_id) => (dispatch) => {
+  if(status_id === 100) status_id = '';
   dispatch({
     type: ISSUES_REQUEST,
   });

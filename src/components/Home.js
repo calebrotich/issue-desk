@@ -24,9 +24,14 @@ const Home = () => {
   const submitIssue = () => {
     axiosConfig
     .post('/issue_tracking/issues', {
-      channel_id: 4,
+      channel_id: 5,
       query_issue: values.subject,
-      issue_details: values.description
+      issue_details: values.description,
+      created_by: 'CUSTOMER',
+      customer_email: values.email,
+      assigned_to: 0,
+      status_id: 0,
+      action: ''
     })
     .then((res) => {
       if (res) {
