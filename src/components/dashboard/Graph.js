@@ -6,14 +6,14 @@ let graphData = {
     labels  : ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
     datasets: [
         {
-            label                    : 'My First dataset',
+            label                    : '0',
             borderColor              : 'rgba(75,192,192,1)',
-            data                     : [65, 59, 80, 81, 56, 55, 40]
+            data                     : [0, 0, 0, 0, 0, 0, 0]
         },
         {
-            label                    : 'Second',
+            label                    : '2',
             borderColor              : 'rgba(75,192,192,1)',
-            data                     : [65, 30, 54, 81, 99, 34, 30]
+            data                     : [0, 0, 0, 0, 0, 0, 0]
         }
     ]
 };
