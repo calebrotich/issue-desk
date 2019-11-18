@@ -124,16 +124,6 @@ export const DataTable = ({
 
   const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
 
-
-  const useStylesPop= makeStyles(theme => ({
-    paper: {
-      border: '1px solid',
-      padding: theme.spacing(1),
-      backgroundColor: theme.palette.background.paper,
-    },
-  }));
-
-  //let issue = 0;
   const [issue, setIssue] = useState(0);
   const [row, setRow] = useState({});
 
@@ -141,13 +131,11 @@ export const DataTable = ({
   const [row2, setRow2] = useState({});
 
   const handlePopClick = (event,row) => {
- //   setAnchorEl(anchorEl ? null : event.currentTarget);
     setRow(row);
     setIssue(row.id);
   };
 
   const handlePopEditClick = (event,row2) => {
-    //   setAnchorEl(anchorEl ? null : event.currentTarget);
     setRow2(row2);
     setIssue2(row2.id);
   };
