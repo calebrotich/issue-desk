@@ -20,7 +20,6 @@ class Resolution extends React.Component {
 
  onLoad(){
     if(this.props.issue===0){
-console.log(this.props.issue);
     }else{
 
       document.getElementById('sample-modal').classList.add('is-active');
@@ -29,8 +28,6 @@ console.log(this.props.issue);
 
  }
   handleSubmit = event => {
-    //  event.preventDefault();
-    console.log("click");
     const data = this.state;
     if(data!=null) {
         //  console.log(this.state);
