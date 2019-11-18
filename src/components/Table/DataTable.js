@@ -17,6 +17,7 @@ import { TableStyles } from './tableStyles';
 import { stableSort, getSorting } from './utils';
 import Chip from '@material-ui/core/Chip';
 import Resolution from "../issues/Resolution";
+import EditIssue from "../issues/EditIssue";
 
 export const DataTable = ({
   classes, columns, data, title, onRowClick, isAdmin
@@ -136,19 +137,20 @@ export const DataTable = ({
   const [issue, setIssue] = useState(0);
   const [row, setRow] = useState({});
 
-  const classesPop = useStylesPop();
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [issue2, setIssue2] = useState(0);
+  const [row2, setRow2] = useState({});
 
   const handlePopClick = (event,row) => {
  //   setAnchorEl(anchorEl ? null : event.currentTarget);
     setRow(row);
     setIssue(row.id);
-    console.log("click " + issue);
   };
 
-  const open = Boolean(anchorEl);
-  const idPop = open ? 'spring-popper' : undefined;
-
+  const handlePopEditClick = (event,row2) => {
+    //   setAnchorEl(anchorEl ? null : event.currentTarget);
+    setRow2(row2);
+    setIssue2(row2.id);
+  };
   return (
     <div className={classes.root}>
       <Paper className={classes.paper}>
@@ -257,12 +259,24 @@ export const DataTable = ({
                       <TableCell align="left">{action}</TableCell>
                       <TableCell align="left">{created_by}</TableCell>
                       <TableCell align="left">
-                        <button className="button is-primary is-outlined" aria-describedby={idPop}  onClick={(event)=>handlePopClick(event,row)}>
+                        <div className="field is-grouped">
+                          <p className="control">
+                        <button className="button is-primary is-outlined"  onClick={(event)=>handlePopClick(event,row)}>
                          <span className="icon is-small">
                        <span className="icon"><i className="mdi mdi-check-bold"></i></span>
                          </span>
                           <span>Resolution</span>
                         </button>
+                          </p>
+                          <p className="control">
+                        <button className="button is-info is-outlined"  onClick={(event)=>handlePopEditClick(event,row)}>
+                         <span className="icon is-small">
+                       <span className="icon"><i className="mdi mdi-pencil"></i></span>
+                         </span>
+                          <span>Edit</span>
+                        </button>
+                          </p>
+                        </div>
                       </TableCell>
                     </TableRow>
                   );
@@ -292,6 +306,7 @@ export const DataTable = ({
         />
       </Paper>
       <Resolution  issue={issue} row={row} />
+      <EditIssue issue={issue2} row={row2} />
     </div>
   );
 };
