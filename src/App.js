@@ -11,6 +11,7 @@ import CreateUser from './components/users/CreateUser';
 import CreateCustomer from './components/customers/CreateCustomer';
 import Resolution from './components/issues/Resolution';
 import Profile from './components/Profile';
+import Reports from './components/Reports';
 import './css/App.css';
 
 const App = () => (
@@ -26,6 +27,7 @@ const App = () => (
     <Route exact path="/users" component={Users} />
     <Route exact path="/resolution" component={Resolution} />
     <Route exact path="/profile" component={Profile} />
+    <Route exact path="/reports" component={Reports} />
   </Switch>
 );
 export default App;

@@ -92,7 +92,7 @@ const SideBar = ({ history }) => {
             </li>
 
             <li>
-              <a href="#" className="has-icon">
+              <a href="#" className="has-icon" onClick={() => history.push('/reports')}>
                 <span className="icon"><i className="mdi mdi-chart-bar"></i></span>
                 <span className="menu-item-label">Reports</span>
               </a>
